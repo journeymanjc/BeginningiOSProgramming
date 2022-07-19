@@ -6,11 +6,25 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+		 Button{
+			 let utterance = AVSpeechUtterance(string: "Hello world")
+			 utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+			 let synthesizer = AVSpeechSynthesizer()
+			 synthesizer.speak(utterance)
+			 
+		 }label: {
+			 Text("Hello")
+				 .fontWeight(.bold)
+				 .font(.system(.title,design: .rounded))
+		 }
+		 .padding()
+		 .foregroundColor(.white)
+		 .background(Color.purple)
+		 .cornerRadius(20)
     }
 }
 
